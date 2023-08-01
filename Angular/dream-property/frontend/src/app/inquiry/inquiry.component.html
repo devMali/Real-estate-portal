@@ -1,0 +1,37 @@
+
+<div class="divv">
+
+  <div class="card"  *ngFor="let prop of PropArr">
+      <img  class="card-img-top" src="{{prop.img}}" alt="img">
+      <div class="card-body">
+        <h5 class="card-title">{{prop.tname}}</h5>
+        <p class="card-text"><strong>Address:</strong>{{prop.padd}} </p><p> {{prop.description}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngIf="prop.is_sell && !prop.is_rent"> <strong>For:</strong>Sell</li>
+        <li class="list-group-item" *ngIf="prop.is_rent && !prop.is_sell"> <strong>For:</strong>Rent</li>
+        <li class="list-group-item" *ngIf="prop.is_rent && prop.is_sell" > <strong>For:</strong>Rent and Sell</li>
+        <li class="list-group-item"> <strong>Price:</strong>{{'₹'+prop.price}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Size:</strong>{{prop.size}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Area:</strong>{{prop.aname}}</li>
+      </ul>
+      <div class="card-body">
+        <!-- {{uid}} , {{id}} -->
+        <form [formGroup]="inqForm" novalidate>
+          <div class="form-group">
+
+            <label for="txtarea"><strong> Enter any Questions/Queries/Doubts:</strong></label><br><br>
+            <textarea formControlName="message" class="form-control" id="etxtarea" rows="2" cols="2" required></textarea>
+
+            <div class="form-text text-danger"
+                  *ngIf="message.errors?.['required'] && (message.dirty || message.touched)">Message is required</div>
+
+                  <div class="form-text text-danger"
+                  *ngIf="message.errors?.['maxlength'] && (message.dirty || message.touched)">Message must be less than 256 characters</div>
+
+          </div> <br><br>
+          <button class="btn btn-dark" (click)="submitInq()" [disabled]="inqForm.invalid">Submit</button>
+          <br><br><br>
+        </form>
+      </div>
+  </div>
+
+</div>

@@ -1,0 +1,36 @@
+<div style="margin: 20px;">
+<h2>List of properties you did inquiry:</h2>
+        <h4 *ngIf="!bval" style="color: red;">{{msg}} <a routerLink="">View now..!</a></h4>
+  <div class="table-responsive" *ngIf="bval">
+<table class="table table-primary table-striped table-hover table-bordered align-middle">
+  <thead>
+    <tr align="center">
+      <th scope="col">Address</th>
+      <th scope="col">Price</th>
+      <th scope="col">Description</th>
+      <th scope="col">Size</th>
+      <th scope="col">Type</th>
+      <th scope="col">Area</th>
+      <th scope="col">Inquiry</th>
+      <th scope="col">Image</th>
+      </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let prop of propInq">
+      <td>{{prop.padd}}</td>
+      <td>{{'₹'+prop.price}}</td>
+      <td>{{prop.description}}</td>
+      <td>{{prop.size}}</td>
+      <td>{{prop.tname}}</td>
+      <td>{{prop.aname}}</td>
+      <td>{{prop.message}}</td>
+      <td><img src={{prop.img}} alt="img" height="100px" width="100px"></td>
+      </tr>
+
+  </tbody>
+</table>
+
+
+</div>
+</div>

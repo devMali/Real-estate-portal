@@ -1,0 +1,32 @@
+<body>
+
+
+<div style="display:flex;flex-wrap:wrap;margin: 100px;">
+  <marquee behavior="" direction=""> <h1 style="color:red;font-family: Courier New">Properties on the Rent</h1> </marquee>
+<div class="card mb-4" style="width:510px;margin:30px;" *ngFor="let prop of rentPropArr">
+  <div class="row">
+    <div class="col-md-5">
+      <img src="{{prop.img}}" style="width:300px;height:265px;" class="card-img" alt="...">
+    </div>
+    <div class="col-md-7">
+      <div class="card-body" style="margin-left: 70px;">
+        <h5 class="card-title">{{prop.tname}}</h5>
+        <h6>
+          <span class="list-group-item" *ngIf="prop.is_sell && !prop.is_rent">For Sell</span>
+          <span class="list-group-item" *ngIf="prop.is_rent && !prop.is_sell">For Rent</span>
+          <span class="list-group-item" *ngIf="prop.is_rent && prop.is_sell" >For Rent and Sell</span>
+        located in the
+        {{prop.aname}}
+        with the price range of:
+        {{'₹'+prop.price}}
+        having the size of:
+          {{prop.size}}
+          <br><br><button class="btn btn-danger" routerLink="../details/{{prop.id}}">View</button>
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>

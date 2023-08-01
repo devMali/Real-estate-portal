@@ -1,0 +1,37 @@
+
+<div style="display:flex;">
+  <div>
+<nav style="width: 180px;" class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ms-auto">
+
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="profile"><fa-icon [icon]="home"></fa-icon>
+          Profile</a>
+      </li>
+     <li class="nav-item active">
+        <a class="nav-link" routerLink="inq-user"><fa-icon [icon]="building"></fa-icon>Properties Inquiry </a>
+      </li>
+      <!-- <li class="nav-item active">
+        <a class="nav-link" routerLink="change-pass"><fa-icon [icon]="add"></fa-icon>Change Password</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="edit-user"><fa-icon [icon]="msg"></fa-icon>Edit Account</a>
+      </li>
+-->
+    </ul>
+
+  </div>
+
+</nav>
+</div>
+<div style="margin-left: 60px;">
+<router-outlet></router-outlet>
+</div>
+</div>

@@ -1,0 +1,39 @@
+<div style="margin: 100px;width: auto;" >
+  <h2>Inquiry for Property by the Users</h2> <br><br>
+  <div class="table-responsive">
+<table style="width:100%" class="table table-success table-striped table-hover table-bordered align-middle">
+  <thead>
+    <tr align="center">
+      <th scope="col">Inquiry id</th>
+      <th scope="col">User id</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Property id</th>
+      <th scope="col">Address</th>
+      <th scope="col">Price</th>
+      <th scope="col">Size</th>
+      <th scope="col">Inquiry</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let inq of inqArr">
+      <td>{{inq.inqid}}</td>
+      <td>{{inq.uid}}</td>
+      <td>{{inq.fname}}</td>
+      <td>{{inq.lname}}</td>
+      <td>{{inq.email}}</td>
+      <td>{{inq.mobile}}</td>
+      <td>{{inq.pid}}</td>
+      <td>{{inq.padd}}</td>
+      <td>{{inq.price}}</td>
+      <td>{{inq.size}}</td>
+      <td>{{inq.message}}</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+</div>

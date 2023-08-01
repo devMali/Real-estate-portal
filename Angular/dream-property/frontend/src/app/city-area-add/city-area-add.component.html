@@ -1,0 +1,29 @@
+<div style="display: flex;margin: 0px;padding: 20px;">
+<div style="margin: 80px;padding: 40px;">
+  <h3>Add the city</h3>
+  <form [formGroup]='cityForm'>
+    <div class="mb-3">
+      <label class="form-label">Enter name of City</label>
+      <input type="text" class="form-control" formControlName="cname">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="addCity()">Add City</button>
+  </form>
+</div>
+<br><br><br>
+<div style="margin: 80px;padding: 40px;">
+  <h3>Add the Area</h3>
+  <form [formGroup]="areaForm">
+    <div class="mb-3">
+      <label class="form-label">Enter name of Area</label>
+      <input type="text" class="form-control" formControlName="aname">
+    </div>
+    <div class="form-outline mb-4" >
+      <label class="form-label" >Select City:&nbsp;&nbsp;&nbsp;</label>
+      <select class="form-select" aria-label="Default select example" formControlName="cid">
+        <option value={{city.id}}  *ngFor="let city of cityArr">{{city.cname}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="addArea()">Add Area</button>
+  </form>
+</div>
+</div>

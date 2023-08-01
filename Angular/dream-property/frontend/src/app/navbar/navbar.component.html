@@ -1,0 +1,56 @@
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark flex-md-nowrap p-0">
+  <a class="navbar-brand" routerLink="">
+    <h2> <img src="/assets/logo2.png" width="60" height="60" class="d-inline-block align-top" alt="">
+     Dream Property </h2></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ms-auto">
+
+      <li class="nav-item active">
+        <a class="nav-link" routerLink=""><fa-icon [icon]="home"></fa-icon>
+          Home</a>
+      </li>
+      <!-- <li class="nav-item active">
+        <a class="nav-link" routerLink="category"><fa-icon [icon]="bars"></fa-icon>Category</a>
+      </li> -->
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle dropend" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <fa-icon [icon]="bars"></fa-icon>Category
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="rent">Properties On Rent</a>
+            <a class="dropdown-item" routerLink="buy">Properties To Buy</a>
+          </div>
+      </li>
+      <li class="nav-item" *ngIf="!authenticated">
+        <a class="nav-link" routerLink="auth"><fa-icon [icon]="unlock"></fa-icon>Login</a>
+      </li>
+
+      <li class="nav-item" *ngIf="authenticated">
+        <a class="nav-link" routerLink="account"><fa-icon [icon]="user"></fa-icon>My Account</a>
+      </li>
+
+      <li class="nav-item" *ngIf="adminAuth && authenticated">
+        <a class="nav-link" routerLink="admin"><fa-icon [icon]="admin"></fa-icon>Admin panel</a>
+      </li>
+
+      <li class="nav-item" *ngIf="authenticated">
+        <a class="nav-link" routerLink="auth" (click)="logout()"><fa-icon [icon]="lock"></fa-icon>
+          Logout</a>
+      </li>
+      &nbsp;&nbsp;&nbsp;
+      <form class="form-inline my-2 my-lg-0" [formGroup]="form">
+        <span style="display: flex;margin-top: -13px;">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" (change)="redirect()" style="height: 30px;margin-top: 20px;" formControlName="search">
+        &nbsp;&nbsp; <button  class="btn btn-outline-light my-3 my-sm-3" routerLink="search/{{form.value.search}}" type="submit">Search</button>
+      </span>
+    </form>
+    </ul>
+
+  </div>
+
+</nav>

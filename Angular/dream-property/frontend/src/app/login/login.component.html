@@ -1,0 +1,62 @@
+
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
+          <form [formGroup]="form" novalidate>
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example3">Email address</label>
+            <input type="email" placeholder="Enter a valid email address" id="form3Example3" class="form-control form-control-lg" formControlName="email" />
+
+            <div class="form-text text-danger"
+              *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">Email is required</div>
+
+            <div class="form-text text-danger"
+            *ngIf="email.errors?.['email'] && (email.dirty || email.touched)">Email is Invalid</div>
+
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <label class="form-label" for="pass">Password</label>
+            <input type="password" placeholder="Enter password" id="pass" class="form-control form-control-lg" formControlName="password" />
+
+            <div class="form-text text-danger"
+            *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">Password is required</div>
+
+            <div class="form-text text-danger"
+            *ngIf="password.errors?.['maxlength'] && (password.dirty || password.touched)">password must be less than 15 characters</div>
+
+            <div class="form-text text-danger"
+            *ngIf="password.errors?.['minlength'] && (password.dirty || password.touched)">password must be at least 6 characters</div>
+
+            <div class="form-text text-danger"
+            *ngIf="password.errors?.['pattern'] && (password.dirty || password.touched)"> Password must contain at least one uppercase letter, one lowercase letter, one number and one special character</div>
+
+          </div>
+
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button type="button" class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;" [disabled]="form.invalid" (click)="check()">Login</button>
+          </div>
+
+        </form>
+
+        <br><br>
+        <label for="" class="text-warning "><strong> Don't have an account...?</strong>&nbsp;&nbsp;&nbsp;</label>
+        <a routerLink="registrations">Signup Now</a>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+

@@ -1,0 +1,154 @@
+<!-- <button (click)="goLogin()">login</button> -->
+<section class="h-100 ">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                alt="Sample photo" class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+            </div>
+            <div class="col-xl-6">
+              <form [formGroup]="registerForm" (ngSubmit)="registerUser()" novalidate>
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase">Registration form</h3>
+
+
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+
+                      <label class="form-label" for="form3Example1m">First name</label>
+                      <input type="text" id="form3Example1m" class="form-control form-control-lg" formControlName="fname"/>
+
+                      <div class="form-text text-danger"
+                        *ngIf="fname.errors?.['required'] && (fname.dirty || fname.touched)">First name is required</div>
+
+                      <div class="form-text text-danger"
+                        *ngIf="fname.errors?.['minlength'] && (fname.dirty || fname.touched)">First name is too short</div>
+
+                        <div class="form-text text-danger"
+                        *ngIf="fname.errors?.['pattern'] && (fname.dirty || fname.touched)">First name must start with alphabet</div>
+
+                      </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="form3Example1n">Last name</label>
+                      <input type="text" id="form3Example1n" class="form-control form-control-lg" formControlName="lname"/>
+
+                      <div class="form-text text-danger"
+                      *ngIf="lname.errors?.['required'] && (lname.dirty || lname.touched)">Last name is required</div>
+
+                    <div class="form-text text-danger"
+                      *ngIf="lname.errors?.['minlength'] && (lname.dirty || lname.touched)">Last name is too short</div>
+
+                      <div class="form-text text-danger"
+                      *ngIf="lname.errors?.['pattern'] && (lname.dirty || lname.touched)">Last name must start with alphabet</div>
+
+
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example8">Address</label>
+                  <input ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" class="form-control form-control-lg" id="form3Example8"   formControlName="address"/>
+                  <div class="form-text text-danger"
+                  *ngIf="address.errors?.['required'] && (address.dirty || address.touched)">Address is required</div>
+
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example97">Email ID</label>
+                  <input type="email" id="form3Example97" class="form-control form-control-lg" formControlName="email" />
+
+                  <div class="form-text text-danger"
+                    *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">Email is required</div>
+
+                  <div class="form-text text-danger"
+                  *ngIf="email.errors?.['email'] && (email.dirty || email.touched)">Email is Invalid</div>
+
+
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example11">Mobile no.</label>
+                  <input type="tel" id="form3Example11" class="form-control form-control-lg" formControlName="mobile" />
+
+                  <div class="form-text text-danger"
+                  *ngIf="mobile.errors?.['required'] && (mobile.dirty || mobile.touched)">Mobile no. is required</div>
+
+                  <div class="form-text text-danger"
+                  *ngIf="mobile.errors?.['maxlength'] && (mobile.dirty || mobile.touched)">Mobile no. must be less than 10</div>
+
+                  <div class="form-text text-danger"
+                  *ngIf="mobile.errors?.['minlength'] && (mobile.dirty || mobile.touched)">Mobile no. must be of 10 digits</div>
+
+                  <div class="form-text text-danger"
+                  *ngIf="mobile.errors?.['pattern'] && (mobile.dirty || mobile.touched)">Mobile no. is Invalid</div>
+
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="pass">Password</label>
+                  <input type="password" id="pass" class="form-control form-control-lg" formControlName="password" />
+
+                  <div class="form-text text-danger"
+                  *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">Password is required</div>
+
+                  <div class="form-text text-danger"
+                  *ngIf="password.errors?.['maxlength'] && (password.dirty || password.touched)">password must be less than 15 characters</div>
+
+                  <div class="form-text text-danger"
+                  *ngIf="password.errors?.['minlength'] && (password.dirty || password.touched)">password must be at least 6 characters</div>
+
+                  <div class="form-text text-danger"
+                  *ngIf="password.errors?.['pattern'] && (password.dirty || password.touched)"> Password must contain at least one uppercase letter, one lowercase letter, one number and one special character</div>
+
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="cpass">Confirm Password</label>
+                  <input type="password" id="cpass" class="form-control form-control-lg" formControlName="cpassword" />
+
+                  <div class="form-text text-danger"
+                  *ngIf="cpassword.errors?.['required'] && (cpassword.dirty || cpassword.touched)">Confirm Password is required</div>
+
+                  <div class="form-text text-danger"
+                  *ngIf="cpassword.errors?.['maxlength'] && (cpassword.dirty || cpassword.touched)">Confirm password must be less than 15 characters</div>
+
+                  <div class="form-text text-danger"
+                  *ngIf="cpassword.errors?.['minlength'] && (cpassword.dirty || cpassword.touched)">Confirm password must be at least 6 characters</div>
+
+                  <div class="form-text text-danger"
+                  *ngIf="cpassword.errors?.['pattern'] && (cpassword.dirty || cpassword.touched)">Confirm Password must contain at least one uppercase letter, one lowercase letter, one number and one special character</div>
+
+                </div>
+                <div class="mb-3">
+                  <label for="formFile" class="form-label">Profile picture</label>
+                  <input class="form-control" type="file" id="formFile" name="img" (change)="onChange($event)" formControlName="uimg"  required>
+
+                </div>
+                <div class="d-flex justify-content-end pt-3">
+                  <button type="button" class="btn btn-warning btn-lg ms-2" (click)="registerUser()" [disabled]="registerForm.invalid" >Submit form</button>
+                </div>
+
+
+              </div>
+             </form>
+
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
